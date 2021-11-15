@@ -64,15 +64,16 @@ async function run(){
         const query = {_id: ObjectId(id)};
         const buyer = await buyerCollection.findOne(query);
         res.json(buyer);
-    })
-        /*  app.get('/buyer', async(req, res) =>{
+    });
+
+          app.get('/buyer', async(req, res) =>{
           const email = req.query.email;
           const query = {email: email};
           const cursor = buyerCollection.find(query);
           const buyer = await cursor.toArray();
           res.json(buyer)
         }); 
- */
+ 
        
      
         app.post('/buyer', async (req, res)=>{
@@ -91,6 +92,8 @@ async function run(){
           const result = await buyerCollection.deleteOne(query);
           res.json(result)
        }) 
+
+       
        //Get Review Api
        app.get('/review', async(req, res) =>{
         const cursor = reviewCollection.find({});
